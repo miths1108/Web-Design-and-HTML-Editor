@@ -1,0 +1,108 @@
+<html>
+	<head>
+		<title>HTML Editor</title>
+		<link href="jquery-ui.css" rel="stylesheet" type="text/css"/>
+		<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+		<script src="jquery-ui.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){
+				$("#b2").click(function(){
+					$("#editor").html($("#code").val());
+				});
+				$("#b1").click(function(){
+					$("#code").val($("#editor").html());
+					//$("#code").val(document.getElementById("design").innerHTML);
+				});
+    				$("#tabs").tabs();
+				
+			});
+
+        function ToggleBold () {
+           document.execCommand ('bold', false, null);
+        }
+        function ToggleItalic () {
+            document.execCommand ('italic', false, null);
+        }
+	function ToggleUnderline () {
+           document.execCommand ('underline', false, null);
+        }
+	function ToggleStrikeOut () {
+           document.execCommand ('strikeThrough', false, null);
+        }
+	function allignLeft () {
+           document.execCommand ('justifyLeft', false, null);
+        }
+	function allignCenter () {
+           document.execCommand ('justifyCenter', false, null);
+        }
+	function allignJustify () {
+           document.execCommand ('justifyFull', false, null);
+        }
+	function allignRight () {
+           document.execCommand ('justifyRight', false, null);
+        }
+        function subscript () {
+            document.execCommand ('subscript', false,null);
+        }
+        function superscript () {
+            document.execCommand ('superscript', false, null);
+        }
+	 function toggleNum () {
+            document.execCommand ('insertOrderedList', false, null);
+        }
+	 function toggleBullet () {
+            document.execCommand ('insertUnorderedList', false, null);
+        }
+	 function imginsert () {
+            document.execCommand ('insertImage', false, "down.gif");
+        }
+	 function buttoninsert () {
+            document.execCommand ('insertButton', false, null);
+        }
+	 
+	 function radioinsert () {
+            document.execCommand ('insertInputRadio', false, null);
+        }
+
+		</script>
+		<style type="text/css">
+			.tabber{
+				width:900px;
+				height:550px;
+			}
+			.tab{
+				border:none;
+				width:90%;
+				height:80%;
+			}
+			.txtarea{
+				
+				width:100%;
+				height:60%;
+			}
+		</style>
+	</head>
+	<body>
+		<span>
+			<button onclick="imginsert();">image</button><button>table</button><button>form</button><button onclick="buttoninsert();">button</button><button onclick="radioinsert();">radio</button><button>checkbox</button><button>list</button><button>filefield</button><button>imagefield</button><button>hiddenfield</button><button>textfield</button><button>textarea</button><button>hyperlink</button>
+			
+		</span>
+		<br/>
+		<span>
+			<input type="checkbox" name="rad" value="bold" onclick="ToggleBold ();"/>bold<input type="checkbox" name="rad" value="italic" onclick="ToggleItalic ();"/>italic<input type="checkbox" name="rad" value="underline" onclick="ToggleUnderline ();" />underline<input type="checkbox" name="chk" value="strikeout" onclick="ToggleStrikeOut ();"/>strikeout<input type="radio" name="alignment" value="left" onclick="allignLeft ();" checked="true"/>left<input type="radio" name="alignment" value="center" onclick="allignCenter ();"/>center<input type="radio" name="alignment" value="right" onclick="allignRight ();"/>right<input type="radio" name="alignment"   value="justify" onclick="allignJustify ();"/>justify<input type="checkbox" name="txtscript" value="subscript" onclick="subscript ();" />subscript<input type="checkbox" name="txtscript" value="superscript"/  onclick="superscript ();" >superscript<input type="checkbox" name="bullnum"  value="numbering" onclick="toggleNum();"/>numbering<input type="checkbox" name="bullnum"   value="bullets" onclick="toggleBullet();"/>bullets<button>fontsize</button><button>fontstyle</button><button>color</button><button>backgroundcolor</button>
+			
+		</span><br/><br/><table><tr><td>
+		<div class="tabber" id="tabs">
+    <ul>
+        <li><a href="#fragment-1" id="b1"><span >Code</span></a></li>
+        <li><a href="#fragment-2" id="b2"><span>Design</span></a></li>
+
+    </ul>
+    <div  id= "fragment-1">
+					<textarea id="code" class="tab"></textarea></div>
+	<div id="fragment-2"><div id="editor" class="tab" onClick="this.contentEditable='true';"></div>
+	</div></div></div></td><td><button>preview</button><br/><button>download</button></td></tr></table>
+    <button onclick="SetRed ();">Set to red</button>
+    <button onclick="Delete ();">Delete</button>
+	</body>
+</html> 
